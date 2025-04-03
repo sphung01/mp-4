@@ -1,6 +1,6 @@
 "use client" //We are responding to the server to update
 import { GameProps } from "@/types/gameInfo";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import getGameData from "./actions";
 import Transition from "@/components/Transition";
 
@@ -15,9 +15,6 @@ export default function Home() {
     const data  = await getGameData(name);
     if(data != undefined) {
       setGame(data);
-    }
-    else {
-      setGame(null);
     }
   }
 
@@ -49,7 +46,7 @@ export default function Home() {
           <div className="text-center m-4">
             {game?.background_image ?
             <img src={game?.background_image!} alt={`This is ${game.name}`}/> 
-            : <p className="font-bold text-lg">GAME DOES NOT EXIST OR WAS NOT SUBMITTED!!!</p>
+            : <p className="font-bold text-lg">PLEASE SUBMIT A GAME THAT EXIST</p>
             }
             <h2 className="font-bold text-lg">🎮 Game Title: {game?.name ? game!.name : "No Game Found"}</h2>
             <h2 className="font-bold text-lg">⏰ Expected Playtime: {game?.playtime ? game.playtime + " Hours" : "N/A"}</h2>
