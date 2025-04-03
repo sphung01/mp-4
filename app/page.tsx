@@ -13,7 +13,7 @@ export default function Home() {
   // On the client side, we await data from the server...
   const searchGame = async () => {
     const data  = await getGameData(name);
-    if(data != undefined) {
+    if(data) {
       setGame(data);
     }
   }
@@ -44,8 +44,8 @@ export default function Home() {
       <div className="flex flex-col justify-center w-1/2 h-200 rounded-xl p-4 bg-green-600">
         <Transition>
           <div className="text-center m-4">
-            {game?.background_image ?
-            <img src={game?.background_image!} alt={`This is ${game.name}`}/> 
+            {(game ?? {}).background_image ?
+            <img src={(game ?? {}).background_image!} alt={"Image does not exit"}/> 
             : <p className="font-bold text-lg">PLEASE SUBMIT A GAME THAT EXIST</p>
             }
             <h2 className="font-bold text-lg">🎮 Game Title: {game?.name ? game!.name : "No Game Found"}</h2>

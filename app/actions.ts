@@ -3,9 +3,6 @@ import { GameProps } from "@/types/gameInfo";
 
 export default async function getGameData(gameName: string): Promise<GameProps | undefined> {
     try{
-        if(gameName === ""){
-            return undefined;
-        }
         const apiKey = process.env.RAWG_API_KEY;
         const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}&search=${gameName}`);
         const data = await response.json();
@@ -14,6 +11,5 @@ export default async function getGameData(gameName: string): Promise<GameProps |
         return data.results[0];
     } catch (error) {
         console.error(error);
-        return undefined;
     }
 }
