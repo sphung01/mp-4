@@ -13,7 +13,7 @@ export default async function getGameData(gameName: string): Promise<GameProps |
         console.log(data.results[0]);
         return data.results[0];
     } catch (error) {
-        console.error(error);
+        console.error("Failed to fetch the data");
         return undefined;
     }
 }

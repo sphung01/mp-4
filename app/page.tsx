@@ -16,6 +16,9 @@ export default function Home() {
     if(data != undefined) {
       setGame(data);
     }
+    else {
+      setGame(null);
+    }
   }
 
   return (
@@ -45,8 +48,8 @@ export default function Home() {
         <Transition>
           <div className="text-center m-4">
             {game?.background_image ?
-            <img src={game?.background_image!} alt={"fw"}/> 
-            : null
+            <img src={game?.background_image!} alt={`This is ${game.name}`}/> 
+            : <p className="font-bold text-lg">GAME DOES NOT EXIST OR WAS NOT SUBMITTED!!!</p>
             }
             <h2 className="font-bold text-lg">🎮 Game Title: {game?.name ? game!.name : "No Game Found"}</h2>
             <h2 className="font-bold text-lg">⏰ Expected Playtime: {game?.playtime ? game.playtime + " Hours" : "N/A"}</h2>
