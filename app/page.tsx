@@ -46,7 +46,7 @@ export default function Home() {
           <div className="text-center m-4">
             {(game ?? {}).background_image ?
             <img src={(game ?? {}).background_image!} alt={"Image does not exit"}/> 
-            : <p className="font-bold text-lg">PLEASE SUBMIT A GAME THAT EXIST</p>
+            : <p className="font-bold text-lg">NO IMAGE FOUND</p>
             }
             <h2 className="font-bold text-lg">🎮 Game Title: {game?.name ? game!.name : "No Game Found"}</h2>
             <h2 className="font-bold text-lg">⏰ Expected Playtime: {game?.playtime ? game.playtime + " Hours" : "N/A"}</h2>
